@@ -13,7 +13,7 @@ public class XContentTypeOptionsFilter implements Filter{
         HttpServletResponse response = (HttpServletResponse)  servletResponse;
 
         response.addHeader("X-Content-Type-Options", "nosniff");
-        response.addHeader("X-Content-Type-Options", "nosniff");
+        //response.addHeader("X-Content-Type-Options", "nosniff");
         filterChain.doFilter(servletRequest, response);
     }
 

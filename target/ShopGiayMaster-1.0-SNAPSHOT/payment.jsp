@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"
+           prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +55,7 @@
                             <div class="col-8">
                                 <p class="h4 mb-0">Summary</p>
                                 <p class="mb-0"><span class="fw-bold">Product:</span><span class="c-green">: Name of product</span></p>
-                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">:$${totalPrice}</span></p>
+                                <p class="mb-0"><span class="fw-bold">Price:</span><span class="c-green">:$${fn:escapeXml(totalPrice)}</span></p>
                                 <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque nihil neque quisquam aut repellendus, dicta vero? Animi dicta cupiditate, facilis provident quibusdam ab quis, iste harum ipsum hic, nemo qui!</p>
                             </div>
                         </div>
@@ -109,7 +111,7 @@
                         return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                    value: '${totalPrice}'
+                                    value: '${fn:escapeXml(totalPrice)}'
                                 }
                             }]
                         });
